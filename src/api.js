@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+// const BASE_URL = "http://localhost:3001";
 
 /** API Class.
  *
@@ -21,16 +21,17 @@ class JoblyApi {
     //there are multiple ways to pass an authorization token, this is how you pass it in the header.
     //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
     const url = `${BASE_URL}/${endpoint}`;
-    let headers
-    if(JoblyApi.token !== undefined){
-      headers = { Authorization: `Bearer ${JoblyApi.token}`, 'Content-Type': 'application/json' };
+    let headers;
+    if (JoblyApi.token !== undefined) {
+      headers = {
+        Authorization: `Bearer ${JoblyApi.token}`,
+        "Content-Type": "application/json",
+      };
     }
-    const params = (method === "get")
-        ? data
-        : {};
+    const params = method === "get" ? data : {};
 
     try {
-      if(headers){
+      if (headers) {
         return (await axios({ url, method, data, params, headers })).data;
       }
       return (await axios({ url, method, data, params })).data;
@@ -52,58 +53,58 @@ class JoblyApi {
 
   // get list of all companies with optional name filter
 
-  static async getCompanies(name=null) {
-    if(name){
-      let res = await this.request(`companies?name=${name}`)
-      return res.companies
+  static async getCompanies(name = null) {
+    if (name) {
+      let res = await this.request(`companies?name=${name}`);
+      return res.companies;
     }
-    let res = await this.request('companies')
-    return res.companies
+    let res = await this.request("companies");
+    return res.companies;
   }
 
   // get list of all jobs with optional title filter
 
-  static async getJobs(title=null) {
-    if(title){
-      let res = await this.request(`jobs?title=${title}`)
-      return res.jobs
+  static async getJobs(title = null) {
+    if (title) {
+      let res = await this.request(`jobs?title=${title}`);
+      return res.jobs;
     }
-    let res = await this.request('jobs')
-    return res.jobs
+    let res = await this.request("jobs");
+    return res.jobs;
   }
 
   // register and return token
 
-  static async registerUser(data){
-    let res = await this.request('auth/register', data, 'post')
-    return res
+  static async registerUser(data) {
+    let res = await this.request("auth/register", data, "post");
+    return res;
   }
 
   // Login and return token
 
   static async login(data) {
-    let res = await this.request('auth/token', data, 'post')
-    return res.token
+    let res = await this.request("auth/token", data, "post");
+    return res.token;
   }
 
   // apply to job for logged in user
   static async applyJob(username, jobId) {
-    let res = await this.request(`users/${username}/jobs/${jobId}`, {}, "post")
-    return res
+    let res = await this.request(`users/${username}/jobs/${jobId}`, {}, "post");
+    return res;
   }
 
   // get user profile
 
   static async getProfile(username) {
-    let res = await this.request(`users/${username}`)
-    console.log(res)
-    return res
+    let res = await this.request(`users/${username}`);
+    console.log(res);
+    return res;
   }
 
   // update user profile
 
   static async updateUser(username, data) {
-    let res = await this.request(`users/${username}`, data, "patch")
+    let res = await this.request(`users/${username}`, data, "patch");
   }
 }
 
@@ -112,4 +113,4 @@ class JoblyApi {
 //     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
 //     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
-export default JoblyApi
+export default JoblyApi;
