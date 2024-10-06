@@ -22,13 +22,13 @@ function Register() {
   function handlePassword(evt) {
     setPassword2(evt.target.value);
   }
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (formData.password !== password2) {
       return alert("Please ensure passwords match.");
     }
     try {
-      const res = JoblyApi.registerUser(formData);
+      const res = await JoblyApi.registerUser(formData);
       JoblyApi.token = res.token;
       localStorage.token = res.token;
       setUser(formData.username);

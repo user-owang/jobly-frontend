@@ -23,7 +23,7 @@ function Profile() {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
       let data = {
@@ -31,7 +31,7 @@ function Profile() {
         lastName: formData.lastName,
         email: formData.email,
       };
-      const res = JoblyApi.updateUser(formData.username, data);
+      const res = await JoblyApi.updateUser(formData.username, data);
       if (res.error) {
         return alert(res.error);
       }
