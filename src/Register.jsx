@@ -41,69 +41,71 @@ function Register() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <FormGroup>
-        <Label for="username">Username</Label>
-        <Input
-          id="username"
-          name="username"
-          type="text"
-          value={formData.username}
-          onChange={handleChange}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="firstName">First name</Label>
-        <Input
-          id="firstName"
-          name="firstName"
-          type="text"
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="lastName">Last name</Label>
-        <Input
-          id="lastName"
-          name="lastName"
-          type="text"
-          value={formData.lastName}
-          onChange={handleChange}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="email">Email</Label>
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="password">Password</Label>
-        <Input
-          id="password"
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="confirmPassword">Confirm password</Label>
-        <Input
-          id="password2"
-          name="password2"
-          type="password"
-          value={password2}
-          onChange={handlePassword}
-        />
-      </FormGroup>
-      <Button color="primary">Register</Button>
-    </Form>
+    <div className="container">
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label for="username">Username</Label>
+          <Input
+            id="username"
+            name="username"
+            type="text"
+            value={formData.username}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="firstName">First name</Label>
+          <Input
+            id="firstName"
+            name="firstName"
+            type="text"
+            value={formData.firstName}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="lastName">Last name</Label>
+          <Input
+            id="lastName"
+            name="lastName"
+            type="text"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="email">Email</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="password">Password</Label>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="confirmPassword">Confirm password</Label>
+          <Input
+            id="password2"
+            name="password2"
+            type="password"
+            value={password2}
+            onChange={handlePassword}
+          />
+        </FormGroup>
+        <Button color="primary">Register</Button>
+      </Form>
+    </div>
   );
 }
 
