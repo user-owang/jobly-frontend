@@ -36,6 +36,7 @@ function Register() {
       navigate("");
     } catch (err) {
       setUser(undefined);
+      console.log(err);
       alert(err.message);
     }
   }
