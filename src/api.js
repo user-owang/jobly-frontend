@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.API_BASE_URL;
+const API_CALL_BASE_URL = process.env.API_BASE_URL;
 // const BASE_URL = "https://jobly-backend-tujy.onrender.com";
 
 /** API Class.
@@ -20,7 +20,7 @@ class JoblyApi {
 
     //there are multiple ways to pass an authorization token, this is how you pass it in the header.
     //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
-    const url = `${BASE_URL}/${endpoint}`;
+    const url = `${API_CALL_BASE_URL}/${endpoint}`;
     let headers;
     if (JoblyApi.token !== undefined) {
       headers = {
